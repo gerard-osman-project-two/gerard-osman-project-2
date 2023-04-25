@@ -1,5 +1,5 @@
 import app from './firebaseConfig.js';
-import {getDatabase, ref, set, push, onValue} from 'https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js';
+import {getDatabase, ref, set, push, get, onValue, update} from 'https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js';
 
 // Step 1:  Create a file (firebase.js) to configure and export the Firebase object.
 // Import the database object, and any required Firebase modules at the top of the main app file (app.js)
@@ -7,7 +7,10 @@ import {getDatabase, ref, set, push, onValue} from 'https://www.gstatic.com/fire
 
 const database = getDatabase(app);
 const dbRef = ref(database);
+
 // reference to the plants in our database
+const shopRef = ref(database, '/plants');
+const cartRef = ref(database, '/cart');
 
 // Step 2:  Declare a function that will add our data both the inventory and the currencies, to our database.
 
@@ -105,15 +108,6 @@ const addToDatabase = (key, value) => {
 //   }
 // }
 
-// const cart = [];
-
-// const addToCart = (item) => {
-
-//   item.cartQuantity = 1;
-//   cart.push(item)
-//   addToDatabase('cart', cart)
-// }
-
 // adding to the database
 // addToDatabase('plants', plants);
 // addToDatabase('currencies', currencies);
@@ -139,6 +133,7 @@ const addToDatabase = (key, value) => {
 // buttonsCart()
 
 // display products
+
 onValue(dbRef, (data) => {
   const storeData = data.val();
   // window.storeData =storeData //global variable that I can access in the browser inspect and console.log whenever I need
@@ -167,12 +162,49 @@ onValue(dbRef, (data) => {
         event.preventDefault();
         const id = event.target.parentNode.id.slice(5);
 
+        if (event.target.tagName === 'IMG') {
+          const selectedSrc = event.target.parentElement.previousElementSibling.attributes.src.nodeValue;
+          console.log(selectedSrc);
+
+          get(shopRef).then((snapshot) => {
+            const plantData = snapshot.val();
+            const index = plantData.findIndex((plant) => plant.url === selectedSrc);
+
+            if (plantData[index].cartQuantity === 0) {
+              addToCart(index);
+            }
+          });
+        }
+
         cartIconNum.innerText = parseInt(cartIconNum.innerText) + 1;
         storeData.plants[id].cartQuantity += 1;
         set(dbRef, storeData);
       });
     });
   };
+
+  const addToCart = (selectedPlantIndex) => {
+    const chosenRef = ref(database, `/plants/${selectedPlantIndex}`);
+    get(chosenRef).then((snapshot) => {
+      const plantData = snapshot.val();
+
+      const addedToCart = {
+        name: plantData.name,
+        imgUrl: plantData.url,
+        alt: plantData.alt,
+        cartQuantity: plantData.cartQuantity,
+      };
+
+      const cartState = {
+        inCart: true,
+      };
+
+      update(chosenRef, cartState);
+
+      push(cartRef, addedToCart);
+    });
+  };
+
   displayItems(currencies.cad);
 
   // shopping cart display
@@ -228,6 +260,6 @@ closeModal.addEventListener('click', () => {
 });
 
 /*
-NOTE: For the future, this is all wrong for multiple users because everyone will have acces to,
+NOTE: For the future, this is all wrong for multiple users because everyone will have access to,
 and in turn be able to edit, the same shopping cart. 
 */
