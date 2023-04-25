@@ -302,12 +302,13 @@ header {
   text-transform: uppercase;
   padding: 1.25rem 2.25rem;
   border-radius: 2rem;
+  border: 2px solid hsl(85, 52%, 64%);
 }
 .btn-feature:hover, .btn-feature:focus {
-  background: hsl(0, 0%, 30%);
+  background: hsl(0, 0%, 100%);
   color: hsl(85, 52%, 64%);
   cursor: pointer;
-  border: 3px solid hsl(85, 52%, 64%);
+  border: 2px solid hsl(85, 52%, 64%);
 }
 
 @media (max-width: 940px) {
@@ -465,7 +466,7 @@ header {
   outline: 0;
 }
 
-.product-cards-container {
+.plants-list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -474,47 +475,40 @@ header {
   margin: 3rem 0;
   gap: 1rem;
 }
-.product-cards-container > a {
+.plants-list > li {
   -ms-flex-preferred-size: calc((100% - 3rem) / 4);
       flex-basis: calc((100% - 3rem) / 4);
-  -webkit-transition: 0.1s linear;
-  transition: 0.1s linear;
-}
-.product-cards-container > a:hover {
-  -webkit-transform: scale(1.05);
-  transform: scale(1.05);
-  -webkit-transition: 0.2s linear;
-  transition: 0.2s linear;
 }
 
-.product-card {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  gap: 8px;
+.plants-list a {
+  display: block;
+  -webkit-transition: 0.1s linear;
+  transition: 0.1s linear;
+  width: 100%;
+  position: relative;
 }
-.product-card > img {
+
+.plants-list img {
   width: 100%;
   -ms-flex-item-align: center;
       align-self: center;
-  margin-bottom: -2.75rem;
 }
 
 .btn-add {
   z-index: 1;
-  width: 2rem;
+  width: 1.5rem;
   background: hsl(0, 0%, 100%);
-  border: 1px solid white;
+  border: none;
   -webkit-box-shadow: 1px 3px 5px 1px hsl(210, 14%, 89%);
           box-shadow: 1px 3px 5px 1px hsl(210, 14%, 89%);
   margin-left: 0.5rem;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  padding: 0;
+  margin: 0;
 }
-.btn-add:hover {
-  width: 2.5rem;
+.btn-add:hover, .btn-add:focus {
   -webkit-box-shadow: 1px 3px 5px 1px hsl(85, 52%, 64%);
           box-shadow: 1px 3px 5px 1px hsl(85, 52%, 64%);
   cursor: pointer;
@@ -530,31 +524,31 @@ header {
 }
 
 @media (max-width: 940px) {
-  .product-cards-container {
+  .plants-list {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
     gap: 1rem;
   }
-  .product-cards-container > a {
+  .plants-list > li {
     -ms-flex-preferred-size: calc((100% - 2rem) / 3);
         flex-basis: calc((100% - 2rem) / 3);
   }
 }
 @media (max-width: 768px) {
-  .product-cards-container {
+  .plants-list {
     gap: 1rem;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
   }
-  .product-cards-container > a {
+  .plants-list > li {
     -ms-flex-preferred-size: calc((100% - 1rem) / 2);
         flex-basis: calc((100% - 1rem) / 2);
   }
 }
 @media (max-width: 480px) {
-  .product-cards-container > a {
+  .plants-list > li {
     -ms-flex-preferred-size: 100%;
         flex-basis: 100%;
   }
@@ -639,12 +633,13 @@ div.new-col {
   text-transform: uppercase;
   padding: 0.75rem 2.25rem;
   border-radius: 2rem;
+  border: 2px solid hsl(85, 52%, 64%);
 }
 .btn-col:hover, .btn-col:focus {
-  background: hsl(0, 0%, 30%);
+  background: hsl(0, 0%, 100%);
   color: hsl(85, 52%, 64%);
   cursor: pointer;
-  border: 3px solid hsl(85, 52%, 64%);
+  border: 2px solid hsl(85, 52%, 64%);
 }
 
 .col-of-cac-1 {
@@ -872,9 +867,9 @@ footer .logo {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -webkit-box-align: left;
+        -ms-flex-align: left;
+            align-items: left;
   }
   .footer-wrapper > div:last-child,
   .footer-wrapper > div:first-child p {
@@ -882,6 +877,10 @@ footer .logo {
   }
   .social-icons {
     padding-top: 1rem;
+  }
+  .social-icons > li {
+    -ms-flex-preferred-size: 0;
+        flex-basis: 0;
   }
 }
 .banner {
@@ -1000,4 +999,75 @@ textarea {
         -ms-flex-direction: column;
             flex-direction: column;
   }
+}
+dialog {
+  font-family: "Rubik", sans-serif;
+  width: 400px;
+  max-height: 400px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  position: fixed;
+  border: 2px solid hsl(85, 52%, 64%);
+}
+dialog ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 1rem;
+}
+dialog ul li {
+  margin-top: 0.25rem;
+}
+dialog ul img {
+  max-height: 100px;
+}
+
+.cart-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.cart-container button {
+  font-size: 1rem;
+  color: hsl(0, 0%, 100%);
+  background: hsl(85, 52%, 64%);
+  text-transform: uppercase;
+  padding: 0.25rem 0.5rem;
+  border: 2px solid hsl(85, 52%, 64%);
+}
+.cart-container button:hover, .cart-container button:focus {
+  color: hsl(85, 52%, 64%);
+  cursor: pointer;
+  outline: 1px solid hsl(0, 0%, 30%);
+}
+
+#close-button {
+  font-size: 1rem;
+  color: hsl(0, 0%, 100%);
+  background: hsl(85, 52%, 64%);
+  text-transform: uppercase;
+  padding: 0.25rem 0.5rem;
+  border-radius: 2rem;
+  border: 2px solid hsl(85, 52%, 64%);
+}
+#close-button:hover, #close-button:focus {
+  background: hsl(0, 0%, 100%);
+  color: hsl(85, 52%, 64%);
+  cursor: pointer;
+  border: 2px solid hsl(85, 52%, 64%);
+  outline: none;
 }

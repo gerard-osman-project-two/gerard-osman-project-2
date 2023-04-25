@@ -1,90 +1,91 @@
 @use 'variables' as v;
 
 .feature * {
-    // outline: 1px solid black;
+  // outline: 1px solid black;
 }
 
 .feature {
-    background: v.$brown;
-    font-family: v.$ff-primary;
-    text-transform: capitalize;
-    line-height: 4.5rem;
-    padding: 2rem 0;
+  background: v.$brown;
+  font-family: v.$ff-primary;
+  text-transform: capitalize;
+  line-height: 4.5rem;
+  padding: 2rem 0;
 
-    .feature-wrapper {
-        display: flex;
-        align-items: center;
+  .feature-wrapper {
+    display: flex;
+    align-items: center;
 
-        >div {
-            flex: 1;
-        }
+    > div {
+      flex: 1;
     }
+  }
 }
 
 .feature h1 {
-    text-transform: uppercase;
-    font-weight: v.$fw-300;
-    font-size: v.$fs-700;
+  text-transform: uppercase;
+  font-weight: v.$fw-300;
+  font-size: v.$fs-700;
 
-    span {
-        font-weight: v.$fw-400;
-        font-size: v.$fs-800;
-        display: block;
-    }
+  span {
+    font-weight: v.$fw-400;
+    font-size: v.$fs-800;
+    display: block;
+  }
 }
 
 .btn-feature {
-    font-size: v.$fs-400;
-    color: v.$white;
-    background: v.$green;
-    text-transform: uppercase;
-    padding: 1.25rem 2.25rem;
-    border-radius: 2rem;
+  font-size: v.$fs-400;
+  color: v.$white;
+  background: v.$green;
+  text-transform: uppercase;
+  padding: 1.25rem 2.25rem;
+  border-radius: 2rem;
+  border: 2px solid v.$green;
 
-    &:hover,
-    &:focus {
-        background: v.$grey-dark;
-        color: v.$green;
-        cursor: pointer;
-        border: 3px solid v.$green;
-    }
+  &:hover,
+  &:focus {
+    background: v.$white;
+    color: v.$green;
+    cursor: pointer;
+    border: 2px solid v.$green;
+  }
 }
 
 // media queries
 
 @media (max-width: 940px) {
-    .feature h1 {
-        span {
-            font-size: v.$fs-600;
-            font-weight: v.$fw-500;
-        }
+  .feature h1 {
+    span {
+      font-size: v.$fs-600;
+      font-weight: v.$fw-500;
     }
+  }
 
-    .feature p {
-        line-height: 1.5rem;
-    }
+  .feature p {
+    line-height: 1.5rem;
+  }
 }
 
 @media (max-width: 768px) {
-    .feature-wrapper {
-        flex-direction: column;
-        gap: 1rem;
+  .feature-wrapper {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .feature-text-container {
+    text-align: center;
+
+    p {
+      line-height: 2.5rem;
     }
+  }
 
-    .feature-text-container {
-        text-align: center;
+  .feature h1 {
+    font-size: v.$fs-700;
+    font-weight: v.$fw-500;
 
-        p {
-            line-height: 2.5rem;
-        }
+    span {
+      font-size: v.$fs-800;
     }
-
-    .feature h1 {
-        font-size: v.$fs-700;
-        font-weight: v.$fw-500;
-
-        span {
-            font-size: v.$fs-800;
-        }
-    }
+  }
 }

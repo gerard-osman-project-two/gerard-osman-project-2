@@ -1,57 +1,76 @@
-{"myData"
-  "inventory": 
-  [
+{
+"Plants": [
   {
-    "name": 'American marigold',
+    "name": "American marigold",
     "price": 23.45,
-    "quantity": 0,
-    "url": './assets/p1.jpeg'
+    "cartQuantity": 0,
+    "url": "./assets/p1.jpeg"
   },
   {
-    "name": 'Black eyed susan',
+    "name": "Black eyed susan",
     "price": 25.45,
-    "quantity": 0,
-    "url": './assets/p2.jpeg',
+    "cartQuantity": 0,
+    "url": "./assets/p2.jpeg"
   },
   {
-    "name": 'Bleeding heart',
+    "name": "Bleeding heart",
     "price": 30.45,
-    "quantity": 0,
-    "url": './assets/p3.jpeg',
+    "cartQuantity": 0,
+    "url": "./assets/p3.jpeg"
   },
   {
-    "name": 'Bloody cranesbill',
+    "name": "Bloody cranesbill",
     "price": 45.00,
-    "quantity": 0,
-    "url": './assets/p4.jpeg'
+    "cartQuantity": 0,
+    "url": "./assets/p4.jpeg"
   },
   {
-    "name": 'Butterfly weed',
+    "name": "Butterfly weed",
     "price": 50.45,
-    "quantity": 0,
-    "url": './assets/p5.jpeg',
-
+    "cartQuantity": 0,
+    "url": "./assets/p5.jpeg"
   },
   {
-    "name": 'Common yarrow',
+    "name": "Common yarrow",
     "price": 65.00,
-    "quantity": 0,
-    "url": './assets/p6.jpeg'
+    "cartQuantity": 0,
+    "url": "./assets/p6.jpeg"
   },
   {
-    "name": 'Double viburnum',
+    "name": "Double viburnum",
     "price": 67.45,
-    "quantity": 0,
-    "url": './assets/p7.jpeg'
+    "cartQuantity": 0,
+    "url": "./assets/p7.jpeg"
   },
   {
-    "name": 'Feather reed grass',
+    "name": "Feather reed grass",
     "price": 20.00,
-    "quantity": 0,
-    "url": './assets/p8.jpeg'
+    "cartQuantity": 0,
+    "url": "./assets/p8.jpeg"
   }
 ]
-"currencies" {
-
 }
+
+{
+  "usd": {
+    "exchange": 1,
+    "symbol": "$",
+    "displayName": "USD",
+    "altText": "the US flag",
+    "flag": "images/USD-flag.png"
+  },
+  "cad": {
+    "exchange": 1.28,
+    "symbol": "$",
+    "displayName": "CAD",
+    "altText": "the Canadian flag",
+    "flag": "images/CAD-flag.png"
+  },
+  "gbp": {
+    "exchange": 0.76,
+    "symbol": "£",
+    "displayName": "GBP",
+    "altText": "the UK flag",
+    "flag": "images/GBP-flag.png"
+  }
 }

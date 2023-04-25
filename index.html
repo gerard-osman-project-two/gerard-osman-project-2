@@ -7,10 +7,7 @@
     <title>PRONIA</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles/style.css" />
   </head>
 
@@ -25,9 +22,7 @@
 
     <header class="header-main">
       <div class="wrapper header-main-wrapper">
-        <a class="logo" href="./index.html"
-          ><img src="./assets/logo.png" alt="pronia logo"
-        /></a>
+        <a class="logo" href="./index.html"><img src="./assets/logo.png" alt="pronia logo" /></a>
         <nav class="nav-top">
           <ul>
             <li><a href="./index.html">Home</a></li>
@@ -35,15 +30,11 @@
             <li><a href="./contact.html">Contact us</a></li>
           </ul>
         </nav>
-        <a class="cart" href="">
+        <a class="cart-button">
           <div class="cart-items">
-            <span class="cart-num">3</span>
+            <span class="cart-num">0</span>
           </div>
-          <img
-            class="shopping-cart"
-            src="./assets/icons/shopping-bag-1.svg"
-            alt="shopping bag icon"
-          />
+          <img class="shopping-cart" src="./assets/icons/shopping-bag-1.svg" alt="shopping bag icon" />
         </a>
       </div>
     </header>
@@ -108,9 +99,103 @@
             <li><a href="#">Bestseller</a></li>
             <li><a href="#">Latest</a></li>
           </ul>
+          <!-- Shopping Cart -->
+          <dialog class="modal" id="modal">
+            <div class="cart-container" id="cart-container">
+              <ul class="cart">
+                <!-- cart items go here -->
+              </ul>
+              <div class="totalPrice"></div>
+              <button id="close-button">Close Cart</button>
+            </div>
+          </dialog>
 
-          <div class="product-cards-container">
-            <a class="grow" href="#">
+          <ul class="plants-list" id="gallery">
+            <!-- <li>
+              <a href="#">
+                <img src="assets/p1.jpeg" alt="american marigold plant that is being sold" />
+                <button class="btn-add">
+                  <img src="assets/icons/cart.svg" alt="" />
+                </button>
+              </a>
+              <p>American marigold</p>
+              <span>$23.45</span>
+            </li>
+            <li>
+              <a href="#">
+                <img src="assets/p2.jpeg" alt="american marigold plant that is being sold" />
+                <button class="btn-add">
+                  <img src="assets/icons/cart.svg" alt="" />
+                </button>
+              </a>
+              <p>American marigold</p>
+              <span>$23.45</span>
+            </li>
+            <li>
+              <a href="#">
+                <img src="assets/p3.jpeg" alt="american marigold plant that is being sold" />
+                <button class="btn-add">
+                  <img src="assets/icons/cart.svg" alt="" />
+                </button>
+              </a>
+              <p>American marigold</p>
+              <span>$23.45</span>
+            </li>
+            <li>
+              <a href="#">
+                <img src="assets/p4.jpeg" alt="american marigold plant that is being sold" />
+                <button class="btn-add">
+                  <img src="assets/icons/cart.svg" alt="" />
+                </button>
+              </a>
+              <p>American marigold</p>
+              <span>$23.45</span>
+            </li>
+            <li>
+              <a href="#">
+                <img src="assets/p5.jpeg" alt="american marigold plant that is being sold" />
+                <button class="btn-add">
+                  <img src="assets/icons/cart.svg" alt="" />
+                </button>
+              </a>
+              <p>American marigold</p>
+              <span>$23.45</span>
+            </li>
+            <li>
+              <a href="#">
+                <img src="assets/p6.jpeg" alt="american marigold plant that is being sold" />
+                <button class="btn-add">
+                  <img src="assets/icons/cart.svg" alt="" />
+                </button>
+              </a>
+              <p>American marigold</p>
+              <span>$23.45</span>
+            </li>
+            <li>
+              <a href="#">
+                <img src="assets/p7.jpeg" alt="american marigold plant that is being sold" />
+                <button class="btn-add">
+                  <img src="assets/icons/cart.svg" alt="" />
+                </button>
+              </a>
+              <p>American marigold</p>
+              <span>$23.45</span>
+            </li>
+            <li>
+              <a href="#">
+                <img src="assets/p8.jpeg" alt="american marigold plant that is being sold" />
+                <button class="btn-add">
+                  <img src="assets/icons/cart.svg" alt="" />
+                </button>
+              </a>
+              <p>American marigold</p>
+              <span>$23.45</span>
+            </li> -->
+          </ul>
+
+          <!-- commented-out old markup with plants contained in separate containers -->
+          <!-- <div class="product-cards-container">
+              <a class="grow" href="#">
               <div class="product-card">
                 <img
                   src="assets/p1.jpeg"
@@ -214,7 +299,8 @@
                 <span>$20.00</span>
               </div>
             </a>
-          </div>
+            </ul>
+          </div> -->
         </div>
       </section>
 
@@ -257,11 +343,7 @@
         <div class="wrapper blog-wrapper">
           <div class="text-container">
             <h3 class="section-heading blog-heading">Latest posts</h3>
-            <p>
-              Read the latest posts by Gerard Juan, an unremarkable gentleman
-              who knows absolutely nothing about botany, but who recently
-              learned how to water plants correctly.
-            </p>
+            <p>Read the latest posts by Gerard Juan, an unremarkable gentleman who knows absolutely nothing about botany, but who recently learned how to water plants correctly.</p>
           </div>
           <div class="blog-post-container">
             <article>
@@ -270,16 +352,8 @@
                 <span>3 april 2023</span>
               </div>
               <h5>why you should care about plants</h5>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Mollitia deserunt exercitationem, neque veniam voluptas cumque
-                temporibus aliquam ut enim harum! Quisquam delectus rerum
-                doloremque eligendi? Voluptas obcaecati nemo tenetur debitis.
-              </p>
-              <img
-                src="assets/blog1.jpeg"
-                alt="a person holding a tray with several plants on it"
-              />
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia deserunt exercitationem, neque veniam voluptas cumque temporibus aliquam ut enim harum! Quisquam delectus rerum doloremque eligendi? Voluptas obcaecati nemo tenetur debitis.</p>
+              <img src="assets/blog1.jpeg" alt="a person holding a tray with several plants on it" />
             </article>
             <article>
               <div class="author-flex-container">
@@ -287,16 +361,8 @@
                 <span>3 april 2023</span>
               </div>
               <h5>mental health benefits of being a plant owner</h5>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Mollitia deserunt exercitationem, neque veniam voluptas cumque
-                temporibus aliquam ut enim harum! Quisquam delectus rerum
-                doloremque eligendi? Voluptas obcaecati nemo tenetur debitis.
-              </p>
-              <img
-                src="assets/blog2.jpeg"
-                alt="a potted plant with the sunlight in the background"
-              />
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia deserunt exercitationem, neque veniam voluptas cumque temporibus aliquam ut enim harum! Quisquam delectus rerum doloremque eligendi? Voluptas obcaecati nemo tenetur debitis.</p>
+              <img src="assets/blog2.jpeg" alt="a potted plant with the sunlight in the background" />
             </article>
             <article>
               <div class="author-flex-container">
@@ -304,16 +370,8 @@
                 <span>3 april 2023</span>
               </div>
               <h5>How to plant dad 101</h5>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Mollitia deserunt exercitationem, neque veniam voluptas cumque
-                temporibus aliquam ut enim harum! Quisquam delectus rerum
-                doloremque eligendi? Voluptas obcaecati nemo tenetur debitis.
-              </p>
-              <img
-                src="assets/blog3.jpeg"
-                alt="a person sitting on the ground putting soil in a plant"
-              />
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia deserunt exercitationem, neque veniam voluptas cumque temporibus aliquam ut enim harum! Quisquam delectus rerum doloremque eligendi? Voluptas obcaecati nemo tenetur debitis.</p>
+              <img src="assets/blog3.jpeg" alt="a person sitting on the ground putting soil in a plant" />
             </article>
           </div>
         </div>
@@ -324,36 +382,20 @@
       <footer>
         <div class="wrapper footer-wrapper">
           <div class="footer-nav-container">
-            <a class="logo" href=""
-              ><img src="./assets/logo.png" alt="pronia logo"
-            /></a>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Exercitationem, blanditiis laudantium suscipit fugit voluptatum
-              eum!
-            </p>
+            <a class="logo" href=""><img src="./assets/logo.png" alt="pronia logo" /></a>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitationem, blanditiis laudantium suscipit fugit voluptatum eum!</p>
             <ul class="social-icons">
               <li>
-                <a href=""
-                  ><img
-                    src="assets/icons/facebook-svgrepo-com.svg"
-                    alt="facebook icon"
-                /></a>
+                <a href=""><img src="assets/icons/facebook-svgrepo-com.svg" alt="facebook icon" /></a>
               </li>
               <li>
-                <a href=""
-                  ><img src="assets/icons/twitter.svg" alt="twitter icon"
-                /></a>
+                <a href=""><img src="assets/icons/twitter.svg" alt="twitter icon" /></a>
               </li>
               <li>
-                <a href=""
-                  ><img src="assets/icons/pinterest.svg" alt="pinterest icon"
-                /></a>
+                <a href=""><img src="assets/icons/pinterest.svg" alt="pinterest icon" /></a>
               </li>
               <li>
-                <a href=""
-                  ><img src="assets/icons/dribble.svg" alt="dribble icon"
-                /></a>
+                <a href=""><img src="assets/icons/dribble.svg" alt="dribble icon" /></a>
               </li>
             </ul>
           </div>
@@ -395,6 +437,7 @@
         </div>
       </footer>
     </main>
+    <script src="https://kit.fontawesome.com/50354c15db.js" crossorigin="anonymous"></script>
     <script src="./js/scripts.js" type="module"></script>
   </body>
 </html>

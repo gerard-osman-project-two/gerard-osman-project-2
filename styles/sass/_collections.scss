@@ -1,116 +1,117 @@
 @use 'variables' as v;
 
 .collections * {
-    // outline: 1px solid black;
-    font-family: v.$ff-primary;
-    text-transform: capitalize;
+  // outline: 1px solid black;
+  font-family: v.$ff-primary;
+  text-transform: capitalize;
 }
 
 .collections-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  font-weight: v.$fw-500;
+
+  > div {
+    gap: 1.5rem;
+    height: 300px;
     display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    font-weight: v.$fw-500;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
 
-    >div {
-        gap: 1.5rem;
-        height: 300px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: start;
-
-        h4 {
-            color: v.$black;
-            font-size: v.$fs-600;
-            font-weight: v.$fw-500;
-            text-shadow: 2px 2px 2px v.$white;
-        }
+    h4 {
+      color: v.$black;
+      font-size: v.$fs-600;
+      font-weight: v.$fw-500;
+      text-shadow: 2px 2px 2px v.$white;
     }
+  }
 }
 
-.collections-wrapper>div>* {
-    position: relative;
-    z-index: 1;
+.collections-wrapper > div > * {
+  position: relative;
+  z-index: 1;
 }
 
 div.col-of-cac {
-    flex: 1 0 64%;
-    gap: 2rem;
-    padding-left: 3rem;
+  flex: 1 0 64%;
+  gap: 2rem;
+  padding-left: 3rem;
 
-    >* {
-        max-width: 50%;
-    }
+  > * {
+    max-width: 50%;
+  }
 }
 
 div.new-col {
-    flex: 1 0 32%;
-    align-items: center;
-    text-align: center;
+  flex: 1 0 32%;
+  align-items: center;
+  text-align: center;
 }
 
 .btn-col {
-    text-align: center;
-    font-size: v.$fs-400;
-    color: v.$white;
-    background: v.$green;
-    text-transform: uppercase;
-    padding: 0.75rem 2.25rem;
-    border-radius: 2rem;
+  text-align: center;
+  font-size: v.$fs-400;
+  color: v.$white;
+  background: v.$green;
+  text-transform: uppercase;
+  padding: 0.75rem 2.25rem;
+  border-radius: 2rem;
+  border: 2px solid v.$green;
 
-    &:hover,
-    &:focus {
-        background: v.$grey-dark;
-        color: v.$green;
-        cursor: pointer;
-        border: 3px solid v.$green;
-    }
+  &:hover,
+  &:focus {
+    background: v.$white;
+    color: v.$green;
+    cursor: pointer;
+    border: 2px solid v.$green;
+  }
 }
 
 .col-of-cac-1 {
-    background: linear-gradient(rgba(255, 255, 255, .3), rgba(255, 255, 255, .3)), center / cover no-repeat url(../../assets/b1.jpeg);
+  background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), center / cover no-repeat url(../../assets/b1.jpeg);
 }
 
 .col-of-cac-2 {
-    background: linear-gradient(rgba(255, 255, 255, .3), rgba(255, 255, 255, .3)), center / cover no-repeat url(../../assets/b4.jpeg);
+  background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), center / cover no-repeat url(../../assets/b4.jpeg);
 }
 
 .new-col-1 {
-    background: linear-gradient(rgba(255, 255, 255, .3), rgba(255, 255, 255, .3)), center / cover no-repeat url(../../assets/b2.jpeg);
+  background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), center / cover no-repeat url(../../assets/b2.jpeg);
 }
 
 .new-col-2 {
-    background: linear-gradient(rgba(255, 255, 255, .3), rgba(255, 255, 255, .3)), center / cover no-repeat url(../../assets/b3.jpeg);
+  background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), center / cover no-repeat url(../../assets/b3.jpeg);
 }
 
-// media queries 
+// media queries
 
 @media (max-width: 768px) {
-    .collections-wrapper {
-        width: 100%;
-        // gap: 0;
-    }
+  .collections-wrapper {
+    width: 100%;
+    // gap: 0;
+  }
 }
 
 @media (max-width: 600px) {
-    .collections-wrapper>div h4 {
-        font-size: v.$fs-500;
-    }
+  .collections-wrapper > div h4 {
+    font-size: v.$fs-500;
+  }
 }
 
 @media (max-width: 480px) {
-    .collections-wrapper {
-        gap: 0;
-    }
+  .collections-wrapper {
+    gap: 0;
+  }
 
-    .btn-col {
-        padding: 0.5rem 1.5rem;
-    }
+  .btn-col {
+    padding: 0.5rem 1.5rem;
+  }
 
-    div.new-col {
-        flex: 1 0 100%;
-        align-items: center;
-        text-align: center;
-    }
+  div.new-col {
+    flex: 1 0 100%;
+    align-items: center;
+    text-align: center;
+  }
 }

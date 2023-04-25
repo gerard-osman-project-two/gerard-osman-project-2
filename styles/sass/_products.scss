@@ -1,155 +1,155 @@
 @use 'variables' as v;
 
 .products * {
-    // outline: 1px solid black;
+  //   outline: 1px solid black;
 }
 
 .products {
-    font-size: v.$fs-400;
-    font-family: v.$ff-primary;
+  font-size: v.$fs-400;
+  font-family: v.$ff-primary;
 }
 
 .section-heading {
-    font-size: v.$fs-600;
-    font-weight: v.$fw-700;
-    text-transform: uppercase;
-    text-align: center;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+  font-size: v.$fs-600;
+  font-weight: v.$fw-700;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 
-    &::before,
-    &::after {
-        background-color: v.$green;
-        content: "";
-        display: inline-block;
-        height: 2px;
-        position: relative;
-        vertical-align: middle;
-        left: -1rem;
-        width: 5%;
-    }
+  &::before,
+  &::after {
+    background-color: v.$green;
+    content: '';
+    display: inline-block;
+    height: 2px;
+    position: relative;
+    vertical-align: middle;
+    left: -1rem;
+    width: 5%;
+  }
 
-    &::after {
-        left: 1rem;
-    }
+  &::after {
+    left: 1rem;
+  }
 }
 
 .product-categories-list {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
 
-    li {
-        border: 1.5px solid v.$grey-light;
-        border-radius: 0.25rem;
-        padding: 0.3rem 1rem;
+  li {
+    border: 1.5px solid v.$grey-light;
+    border-radius: 0.25rem;
+    padding: 0.3rem 1rem;
 
-        &:hover,
-        :focus {
-            border: 1.5px dashed v.$green;
-            color: v.$green;
-            outline: 0;
-        }
+    &:hover,
+    :focus {
+      border: 1.5px dashed v.$green;
+      color: v.$green;
+      outline: 0;
     }
+  }
 }
 
-.product-cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 3rem 0;
-    gap: 1rem;
-
-    >a {
-        flex-basis: calc((100% - 3rem) / 4);
-        transition: 0.1s linear;
-
-        &:hover {
-            -webkit-transform: scale(1.05);
-            -ms-transform: scale(1.05);
-            transform: scale(1.05);
-            transition: 0.2s linear;
-        }
-    }
+.plants-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 3rem 0;
+  gap: 1rem;
+  > li {
+    flex-basis: calc((100% - 3rem) / 4);
+  }
 }
 
-.product-card {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+.plants-list a {
+  display: block;
+  transition: 0.1s linear;
+  width: 100%;
+  position: relative;
+}
 
-    >img {
-        width: 100%;
-        align-self: center;
-        margin-bottom: -2.75rem;
-    }
+// .plants-list a:hover {
+//   -webkit-transform: scale(1.05);
+//   -ms-transform: scale(1.05);
+//   transform: scale(1.05);
+//   transition: 0.2s linear;
+// }
+
+.plants-list img {
+  width: 100%;
+  align-self: center;
 }
 
 .btn-add {
-    // z-index to allow user to add to cart when hovering over image
-    z-index: 1;
-    width: 2rem;
-    background: v.$white;
-    border: 1px solid white;
-    box-shadow: 1px 3px 5px 1px v.$grey-light;
-    margin-left: 0.5rem;
+  // z-index to allow user to add to cart when hovering over image
+  z-index: 1;
+  width: 1.5rem;
+  background: v.$white;
+  border: none;
+  box-shadow: 1px 3px 5px 1px v.$grey-light;
+  margin-left: 0.5rem;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  padding: 0;
+  margin: 0;
 
-    &:hover {
-        width: 2.5rem;
-        box-shadow: 1px 3px 5px 1px v.$green;
-        cursor: pointer;
-    }
+  &:hover,
+  &:focus {
+    box-shadow: 1px 3px 5px 1px v.$green;
+    cursor: pointer;
+  }
 }
 
 .card p {
-    text-transform: capitalize;
+  text-transform: capitalize;
 }
 
 .card span {
-    color: v.$green;
-    font-size: v.$fs-400;
+  color: v.$green;
+  font-size: v.$fs-400;
 }
 
 // media queries
 
 @media (max-width: 940px) {
-    .product-cards-container {
-        // display: flex;
-        // flex-wrap: wrap;
-        // margin: 3rem 0;
-        justify-content: center;
-        gap: 1rem;
+  .plants-list {
+    justify-content: center;
+    gap: 1rem;
 
-        >a {
-            flex-basis: calc((100% - 2rem) / 3);
-        }
+    > li {
+      flex-basis: calc((100% - 2rem) / 3);
     }
+  }
 }
 
 @media (max-width: 768px) {
-    .product-cards-container {
-        gap: 1rem;
-        justify-content: center;
+  .plants-list {
+    gap: 1rem;
+    justify-content: center;
 
-        >a {
-            flex-basis: calc((100% - 1rem) / 2);
-        }
+    > li {
+      flex-basis: calc((100% - 1rem) / 2);
     }
+  }
 }
 
 @media (max-width: 480px) {
-    .product-cards-container {
-        >a {
-            flex-basis: 100%;
-        }
+  .plants-list {
+    > li {
+      flex-basis: 100%;
     }
+  }
 
-    .section-heading {
-        font-size: v.$fs-500;
-        font-weight: v.$fw-500;
-    }
+  .section-heading {
+    font-size: v.$fs-500;
+    font-weight: v.$fw-500;
+  }
 
-    .product-categories-list {
-        border: none;
-        outline: none;
-    }
+  .product-categories-list {
+    border: none;
+    outline: none;
+  }
 }

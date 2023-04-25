@@ -1,0 +1,64 @@
+@use 'variables' as v;
+dialog {
+  font-family: v.$ff-primary;
+  width: 400px;
+  max-height: 400px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  position: fixed;
+  border: 2px solid v.$green;
+  ul {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    li {
+      margin-top: 0.25rem;
+    }
+    img {
+      max-height: 100px;
+    }
+  }
+}
+
+.cart-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  button {
+    font-size: v.$fs-400;
+    color: v.$white;
+    background: v.$green;
+    text-transform: uppercase;
+    padding: 0.25rem 0.5rem;
+    // border-radius: 2rem;
+    border: 2px solid v.$green;
+
+    &:hover,
+    &:focus {
+      color: v.$green;
+      cursor: pointer;
+      outline: 1px solid v.$grey-dark;
+    }
+  }
+}
+
+#close-button {
+  font-size: v.$fs-400;
+  color: v.$white;
+  background: v.$green;
+  text-transform: uppercase;
+  padding: 0.25rem 0.5rem;
+  border-radius: 2rem;
+  border: 2px solid v.$green;
+  &:hover,
+  &:focus {
+    background: v.$white;
+    color: v.$green;
+    cursor: pointer;
+    border: 2px solid v.$green;
+    outline: none;
+  }
+}

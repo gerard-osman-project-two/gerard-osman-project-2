@@ -1,76 +1,77 @@
 @use 'variables' as v;
 
 footer * {
-    // outline: 1px solid black;
+  //   outline: 1px solid black;
 }
 
 footer {
-    font-family: v.$ff-primary;
-    line-height: 2rem;
-    padding-top: 6rem;
-    padding-bottom: 3rem;
-    background: center / cover no-repeat url(../../assets/footer.jpg);
+  font-family: v.$ff-primary;
+  line-height: 2rem;
+  padding-top: 6rem;
+  padding-bottom: 3rem;
+  background: center / cover no-repeat url(../../assets/footer.jpg);
 }
 
 .footer-wrapper {
-    display: flex;
-    gap: 1rem;
+  display: flex;
+  gap: 1rem;
 }
 
 .footer-nav-container,
 .footer-nav-container .col {
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    flex: 1;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  flex: 1;
 }
 
 .footer-heading {
-    font-weight: v.$fw-400;
-    font-size: 1.1rem;
-    flex-basis: 20%;
+  font-weight: v.$fw-400;
+  font-size: 1.1rem;
+  flex-basis: 20%;
 }
 
 .social-icons {
-    display: flex;
-    gap: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
 
-    >li {
-        flex-basis: 25%;
-        // outline: 1px solid blue;
+  > li {
+    flex-basis: 25%;
 
-        img {
-            max-width: 2rem;
-            height: 100%;
-            padding: 5px;
-            border: 1px solid v.$black;
-        }
+    img {
+      max-width: 2rem;
+      height: 100%;
+      padding: 5px;
+      border: 1px solid v.$black;
     }
+  }
 }
 
 .phone-num {
-    font-size: v.$fs-500;
+  font-size: v.$fs-500;
 }
 
 footer .logo {
-margin-top: -2rem;
+  margin-top: -2rem;
 }
-
 
 // media queries
 
 @media (max-width: 768px) {
-    .footer-wrapper {
-        flex-direction: column;
-        align-items: center;
-            > div:last-child,
-            > div:first-child p {
-                display: none;
-            }
+  .footer-wrapper {
+    flex-direction: column;
+    align-items: left;
+    > div:last-child,
+    > div:first-child p {
+      display: none;
     }
+  }
 
-    .social-icons {
-        padding-top: 1rem;
+  .social-icons {
+    padding-top: 1rem;
+    > li {
+      flex-basis: 0;
     }
+  }
 }
