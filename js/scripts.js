@@ -12,70 +12,88 @@ const dbRef = ref(database);
 const shopRef = ref(database, '/plants');
 const cartRef = ref(database, '/cart');
 
-// Step 2:  Declare a function that will add our data both the inventory and the currencies, to our database.
+// global elements
+const plantsUL = document.querySelector('.plants-list');
 
+// Step 2:  Declare a function that will add our data both the inventory and the currencies, to our database.
 const addToDatabase = (key, value) => {
   const plantRef = ref(database, key);
   set(plantRef, value);
 };
 
-// Array of plant, currency, and selected objects
+// Array of plant and currency objects
 // const plants = [
 //   {
 //     name: 'American marigold',
 //     price: 23.45,
+//     inCart: false,
 //     cartQuantity: 0,
 //     storeQuantity: 10,
 //     url: './assets/p1.jpeg',
+//     alt: 'an american marigold plant',
 //   },
 //   {
 //     name: 'Black eyed susan',
 //     price: 25.45,
+//     inCart: false,
 //     cartQuantity: 0,
 //     storeQuantity: 10,
 //     url: './assets/p2.jpeg',
+//     alt: 'a black eyed susan plant',
 //   },
 //   {
 //     name: 'Bleeding heart',
 //     price: 30.45,
+//     inCart: false,
 //     cartQuantity: 0,
 //     storeQuantity: 10,
 //     url: './assets/p3.jpeg',
+//     alt: 'a bleeding heart plant',
 //   },
 //   {
 //     name: 'Bloody cranesbill',
 //     price: 45,
+//     inCart: false,
 //     cartQuantity: 0,
 //     storeQuantity: 10,
 //     url: './assets/p4.jpeg',
+//     alt: 'a bloody cranesbill plant',
 //   },
 //   {
 //     name: 'Butterfly weed',
 //     price: 50.45,
+//     inCart: false,
 //     cartQuantity: 0,
 //     storeQuantity: 10,
 //     url: './assets/p5.jpeg',
+//     alt: 'a butterfly weed plant',
 //   },
 //   {
 //     name: 'Common yarrow',
 //     price: 65,
+//     inCart: false,
 //     cartQuantity: 0,
 //     storeQuantity: 10,
 //     url: './assets/p6.jpeg',
+//     alt: 'a common yarrow plant',
 //   },
 //   {
 //     name: 'Double viburnum',
 //     price: 67.45,
+//     inCart: false,
 //     cartQuantity: 0,
 //     storeQuantity: 10,
 //     url: './assets/p7.jpeg',
+//     alt: 'a double viburnum plant',
 //   },
 //   {
 //     name: 'Feather reed grass',
 //     price: 20,
+//     inCart: false,
 //     cartQuantity: 0,
 //     storeQuantity: 10,
 //     url: './assets/p8.jpeg',
+//     alt: 'a feather reed grass plant',
 //   },
 // ];
 // const currencies = {
@@ -103,7 +121,7 @@ const addToDatabase = (key, value) => {
 // };
 // const selected = {
 //   test: {
-//     testin1: 0,
+//     testing1: 0,
 //     testing2: 2,
 //   }
 // }
@@ -142,13 +160,13 @@ onValue(dbRef, (data) => {
   const cartIconNum = document.querySelector('.cart-num');
 
   const displayItems = (chosenCurrency) => {
-    const plantsUL = document.querySelector('.plants-list');
+    // const plantsUL = document.querySelector('.plants-list');
     plantsUL.innerHTML = '';
     plants.forEach((item, index) => {
       const newLI = document.createElement('li');
       newLI.innerHTML = `
       <a id="item_${index}">
-        <img src="${item.url}" id="item_${index}" alt=""/>
+        <img src="${item.url}" id="item_${index}" alt="${item.alt}"/>
         <button class="btn-add" id="item_${index}">
           <img src="assets/icons/cart.svg" alt=""/>
         </button>
@@ -183,27 +201,27 @@ onValue(dbRef, (data) => {
     });
   };
 
-  const addToCart = (selectedPlantIndex) => {
-    const chosenRef = ref(database, `/plants/${selectedPlantIndex}`);
-    get(chosenRef).then((snapshot) => {
-      const plantData = snapshot.val();
+  // plantsUL.addEventListener('click', (event) => {
+  //   event.preventDefault();
+  //   const id = event.target.parentNode.id.slice(5);
 
-      const addedToCart = {
-        name: plantData.name,
-        imgUrl: plantData.url,
-        alt: plantData.alt,
-        cartQuantity: plantData.cartQuantity,
-      };
+  //   if (event.target.tagName === 'IMG') {
+  //     const selectedSrc = event.target.parentElement.previousElementSibling.attributes.src.nodeValue;
+  //     console.log(selectedSrc);
 
-      const cartState = {
-        inCart: true,
-      };
+  //     get(shopRef).then((snapshot) => {
+  //       const plantData = snapshot.val();
+  //       const index = plantData.findIndex((plant) => plant.url === selectedSrc);
 
-      update(chosenRef, cartState);
+  //       if (plantData[index].cartQuantity === 0) {
+  //         addToCart(index);
+  //       }
+  //     });
+  //   }
 
-      push(cartRef, addedToCart);
-    });
-  };
+  //   storeData.plants[id].cartQuantity += 1;
+  //   set(dbRef, storeData);
+  // });
 
   displayItems(currencies.cad);
 
@@ -215,7 +233,8 @@ onValue(dbRef, (data) => {
     .forEach((item) => {
       // render the cart items
       const newLI = document.createElement('li');
-      newLI.innerHTML = `<img src="${item.url}" alt="" style= "max-height:50px"/> ${item.name} + ${item.cartQuantity}
+      newLI.innerHTML = `<img src="${item.url}" alt="${item.alt}" style= "max-height:50px"/> ${item.name} + ${item.cartQuantity}
+      <p>${(item.price * item.cartQuantity).toFixed(2)}
       <button class="increase">🔼</button>
       <button class="decrease">🔽</button>
       <button class="remove">❌</button>
@@ -245,8 +264,43 @@ onValue(dbRef, (data) => {
         storeData.plants[id].cartQuantity = 0;
         set(dbRef, storeData);
       });
+
+      let totalResult = 0;
+      plants.forEach((item) => {
+        totalResult += item.cartQuantity * item.price;
+      });
+      // display totalPrice
+      const totalPrice = document.querySelector('.totalPrice');
+      totalPrice.innerHTML = '';
+
+      const totalSection = document.createElement('p');
+      totalSection.innerHTML = `Total Cost: ${totalResult.toFixed(2)}`;
+
+      totalPrice.append(totalSection);
     });
 });
+
+const addToCart = (selectedPlantIndex) => {
+  const chosenRef = ref(database, `/plants/${selectedPlantIndex}`);
+  get(chosenRef).then((snapshot) => {
+    const plantData = snapshot.val();
+
+    const addedToCart = {
+      name: plantData.name,
+      imgUrl: plantData.url,
+      alt: plantData.alt,
+      cartQuantity: plantData.cartQuantity,
+    };
+
+    const cartState = {
+      inCart: true,
+    };
+
+    update(chosenRef, cartState);
+
+    push(cartRef, addedToCart);
+  });
+};
 
 const modal = document.querySelector('.modal');
 const openModal = document.querySelector('.shopping-cart');
