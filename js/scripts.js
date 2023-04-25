@@ -18,95 +18,89 @@ const addToDatabase = (key, value) => {
 };
 
 // Array of plant, currency, and selected objects
-// const plants = [
-//   {
-//     name: 'American marigold',
-//     price: 23.45,
-//     cartQuantity: 0,
-//     storeQuantity: 10,
-//     url: './assets/p1.jpeg',
-//   },
-//   {
-//     name: 'Black eyed susan',
-//     price: 25.45,
-//     cartQuantity: 0,
-//     storeQuantity: 10,
-//     url: './assets/p2.jpeg',
-//   },
-//   {
-//     name: 'Bleeding heart',
-//     price: 30.45,
-//     cartQuantity: 0,
-//     storeQuantity: 10,
-//     url: './assets/p3.jpeg',
-//   },
-//   {
-//     name: 'Bloody cranesbill',
-//     price: 45,
-//     cartQuantity: 0,
-//     storeQuantity: 10,
-//     url: './assets/p4.jpeg',
-//   },
-//   {
-//     name: 'Butterfly weed',
-//     price: 50.45,
-//     cartQuantity: 0,
-//     storeQuantity: 10,
-//     url: './assets/p5.jpeg',
-//   },
-//   {
-//     name: 'Common yarrow',
-//     price: 65,
-//     cartQuantity: 0,
-//     storeQuantity: 10,
-//     url: './assets/p6.jpeg',
-//   },
-//   {
-//     name: 'Double viburnum',
-//     price: 67.45,
-//     cartQuantity: 0,
-//     storeQuantity: 10,
-//     url: './assets/p7.jpeg',
-//   },
-//   {
-//     name: 'Feather reed grass',
-//     price: 20,
-//     cartQuantity: 0,
-//     storeQuantity: 10,
-//     url: './assets/p8.jpeg',
-//   },
-// ];
-// const currencies = {
-//   usd: {
-//     exchange: 1,
-//     symbol: `$`,
-//     displayName: `USD`,
-//     altText: `the US flag`,
-//     flag: `images/USD-flag.png`,
-//   },
-//   cad: {
-//     exchange: 1.28,
-//     symbol: `$`,
-//     displayName: `CAD`,
-//     altText: `the Canadian flag`,
-//     flag: `images/CAD-flag.png`,
-//   },
-//   gbp: {
-//     exchange: 0.76,
-//     symbol: `£`,
-//     displayName: `GBP`,
-//     altText: `the UK flag`,
-//     flag: `images/GBP-flag.png`,
-//   },
-// };
-// const selected = {
-//   test: {
-//     testin1: 0,
-//     testing2: 2,
-//   }
-// }
+const plants = [
+  {
+    name: 'American marigold',
+    price: 23.45,
+    cartQuantity: 0,
+    storeQuantity: 10,
+    url: './assets/p1.jpeg',
+  },
+  {
+    name: 'Black eyed susan',
+    price: 25.45,
+    cartQuantity: 0,
+    storeQuantity: 10,
+    url: './assets/p2.jpeg',
+  },
+  {
+    name: 'Bleeding heart',
+    price: 30.45,
+    cartQuantity: 0,
+    storeQuantity: 10,
+    url: './assets/p3.jpeg',
+  },
+  {
+    name: 'Bloody cranesbill',
+    price: 45,
+    cartQuantity: 0,
+    storeQuantity: 10,
+    url: './assets/p4.jpeg',
+  },
+  {
+    name: 'Butterfly weed',
+    price: 50.45,
+    cartQuantity: 0,
+    storeQuantity: 10,
+    url: './assets/p5.jpeg',
+  },
+  {
+    name: 'Common yarrow',
+    price: 65,
+    cartQuantity: 0,
+    storeQuantity: 10,
+    url: './assets/p6.jpeg',
+  },
+  {
+    name: 'Double viburnum',
+    price: 67.45,
+    cartQuantity: 0,
+    storeQuantity: 10,
+    url: './assets/p7.jpeg',
+  },
+  {
+    name: 'Feather reed grass',
+    price: 20,
+    cartQuantity: 0,
+    storeQuantity: 10,
+    url: './assets/p8.jpeg',
+  },
+];
+const currencies = {
+  usd: {
+    exchange: 1,
+    symbol: `$`,
+    displayName: `USD`,
+    altText: `the US flag`,
+    flag: `images/USD-flag.png`,
+  },
+  cad: {
+    exchange: 1.28,
+    symbol: `$`,
+    displayName: `CAD`,
+    altText: `the Canadian flag`,
+    flag: `images/CAD-flag.png`,
+  },
+  gbp: {
+    exchange: 0.76,
+    symbol: `£`,
+    displayName: `GBP`,
+    altText: `the UK flag`,
+    flag: `images/GBP-flag.png`,
+  },
+};
 
-// const cart = [];
+const cart = [];
 
 // const addToCart = (item) => {
 
@@ -116,30 +110,8 @@ const addToDatabase = (key, value) => {
 // }
 
 // adding to the database
-// addToDatabase('plants', plants);
-// addToDatabase('currencies', currencies);
-// addToDatabase('selected', selected);
-
-
-// const buttonsCart = () => {
-//   const removeCartItemButtons = document.getElementById("remove")
-//   removeCartItemButtons.addEventListener('click', function() {
-//   console.log("Removed")
-//   })
-
-//   const increaseCartItemButtons = document.getElementById("increase")
-
-//   increaseCartItemButtons.addEventListener('click', function() {
-//   console.log("Increased")
-//   })
-
-//   const decreaseCartItemButtons = document.getElementById("decrease")
-//   decreaseCartItemButtons.addEventListener('click', function() {
-//   console.log("Decreased")
-//   })
-// }
-// buttonsCart()
-
+addToDatabase('plants', plants);
+addToDatabase('currencies', currencies);
 
 
 // display products
@@ -167,7 +139,7 @@ onValue(dbRef, (data) => {
       plantsUL.appendChild(newLI);
       newLI.querySelector('button').addEventListener('click', event =>{
         const id = event.target.parentNode.id.slice(5)
-        console.log(event.target.parentNode.id.slice(5))
+        // console.log(event.target.parentNode.id.slice(5))
         storeData.plants[id].cartQuantity += 1;
         set(dbRef, storeData);
       })
@@ -210,10 +182,19 @@ onValue(dbRef, (data) => {
         storeData.plants[id].cartQuantity = 0;
         set(dbRef, storeData)
       })
+      // totalPrice function. loop through plants array, if storeQuantiy>0, add 
+      // const individualPrice = item.cartQuantity * item.price
+      // const totalPrice = individualPrice
+
+      // no need to filter, have cartQuanity multiply price. If 0, it wont matter
+      // plants.forEach(item =>{
+      //   console.log(item)
+      // })
+      // console.log(individualPrice)
+
+      // display totalPrice
     })
-
-
-});
+  });
 
 const modal = document.querySelector('.modal')
 const openModal = document.querySelector('.shopping-cart');
@@ -225,6 +206,8 @@ openModal.addEventListener('click', () => {
 closeModal.addEventListener('click', () => {
   modal.close()
 })
+
+
 
 
 /*
