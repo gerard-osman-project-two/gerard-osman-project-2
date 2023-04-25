@@ -218,6 +218,7 @@ onValue(dbRef, (data) => {
       newLI.innerHTML = `
       <img src="${item.url}" alt="${item.alt}"/>
       <p>${item.name} x ${item.cartQuantity}</p>
+      <p>${(item.price * item.cartQuantity).toFixed(2)}</p>
       <button class="increase"><i class="fa-solid fa-plus" style="color: #ffffff;"></i></button>
       <button class="decrease"><i class="fa-solid fa-minus" style="color: #ffffff;"></i></button>
       <button class="remove"><i class="fa-solid fa-trash" style="color: #ffffff;"></i></button>
@@ -247,6 +248,20 @@ onValue(dbRef, (data) => {
         storeData.plants[id].cartQuantity = 0;
         set(dbRef, storeData);
       });
+
+      let totalResult = 0;
+      plants.forEach((item) => {
+        totalResult += item.cartQuantity * item.price;
+      });
+      console.log(totalResult);
+      // display totalPrice
+      const totalPrice = document.querySelector('.totalPrice');
+      totalPrice.innerHTML = '';
+
+      const totalSection = document.createElement('p');
+      totalSection.innerHTML = `Total Cost: ${totalResult.toFixed(2)}`;
+
+      totalPrice.append(totalSection);
     });
 });
 
