@@ -485,7 +485,6 @@ header {
   transition: 0.1s linear;
   width: 100%;
   position: relative;
-  margin-bottom: 0.5rem;
 }
 
 .plants-list a:hover {
@@ -503,14 +502,17 @@ header {
 
 .btn-add {
   z-index: 1;
-  width: 2rem;
+  width: 1.5rem;
   background: hsl(0, 0%, 100%);
-  border: 1px solid white;
+  border: none;
   -webkit-box-shadow: 1px 3px 5px 1px hsl(210, 14%, 89%);
           box-shadow: 1px 3px 5px 1px hsl(210, 14%, 89%);
   margin-left: 0.5rem;
   position: absolute;
   bottom: 10px;
+  left: 10px;
+  padding: 0;
+  margin: 0;
 }
 .btn-add:hover, .btn-add:focus {
   -webkit-box-shadow: 1px 3px 5px 1px hsl(85, 52%, 64%);
@@ -862,12 +864,6 @@ footer {
 
 footer .logo {
   margin-top: -2rem;
-}
-
-.modal {
-  padding: 20px;
-  width: 200px;
-  height: 200px;
 }
 
 @media (max-width: 768px) {

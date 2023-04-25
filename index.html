@@ -30,9 +30,9 @@
             <li><a href="./contact.html">Contact us</a></li>
           </ul>
         </nav>
-        <a class="cart" href="">
+        <a class="cart-button">
           <div class="cart-items">
-            <span class="cart-num">3</span>
+            <span class="cart-num">0</span>
           </div>
           <img class="shopping-cart" src="./assets/icons/shopping-bag-1.svg" alt="shopping bag icon" />
         </a>
@@ -99,20 +99,18 @@
             <li><a href="#">Bestseller</a></li>
             <li><a href="#">Latest</a></li>
           </ul>
-
           <!-- Shopping Cart -->
-          <!-- <dialog class="modal" id="modal"> -->
-          <div class="shoppingCartContainer" id="shoppingCartContainer">
-            <div class="totalTitle">Total</div>
-            <div class="totalPrice">$0</div>
-            <ul id="shoppingCart"></ul>
-            <button id="increase">🔼</button>
-            <button id="decrease">🔽</button>
-            <button id="remove">❌</button>
-          </div>
-          <!-- </dialog> -->
+          <dialog class="modal" id="modal">
+            <div class="cartContainer" id="cartContainer">
+              <ul class="cart">
+                <!-- cart items go here -->
+              </ul>
+              <div class="totalPrice"></div>
+              <button class="close-button">Close Cart</button>
+            </div>
+          </dialog>
 
-          <ul class="plants-list">
+          <ul class="plants-list" id="gallery">
             <!-- <li>
               <a href="#">
                 <img src="assets/p1.jpeg" alt="american marigold plant that is being sold" />
@@ -210,7 +208,6 @@
                 <span>$23.45</span>
               </div>
             </a>
-
             <a href="#">
               <div class="product-card">
                 <img

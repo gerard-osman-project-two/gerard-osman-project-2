@@ -68,7 +68,6 @@
   transition: 0.1s linear;
   width: 100%;
   position: relative;
-  margin-bottom: 0.5rem;
 }
 
 .plants-list a:hover {
@@ -86,13 +85,16 @@
 .btn-add {
   // z-index to allow user to add to cart when hovering over image
   z-index: 1;
-  width: 2rem;
+  width: 1.5rem;
   background: v.$white;
-  border: 1px solid white;
+  border: none;
   box-shadow: 1px 3px 5px 1px v.$grey-light;
   margin-left: 0.5rem;
   position: absolute;
   bottom: 10px;
+  left: 10px;
+  padding: 0;
+  margin: 0;
 
   &:hover,
   &:focus {
