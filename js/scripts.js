@@ -155,7 +155,8 @@ onValue(dbRef, (data) => {
     .forEach(item => {
       // render the cart items
       const newLI = document.createElement('li');
-      newLI.innerHTML = `<img src="${item.url}" alt="" style= "max-height:50px"/> ${item.name} + ${item.cartQuantity}
+      newLI.innerHTML = `<img src="${item.url}" alt="" style= "max-height:50px"/> <p>${item.name} x${item.cartQuantity}
+      <p>${item.price*item.cartQuantity}
       <button class="increase">🔼</button>
       <button class="decrease">🔽</button>
       <button class="remove">❌</button>
@@ -182,19 +183,27 @@ onValue(dbRef, (data) => {
         storeData.plants[id].cartQuantity = 0;
         set(dbRef, storeData)
       })
-      // totalPrice function. loop through plants array, if storeQuantiy>0, add 
-      // const individualPrice = item.cartQuantity * item.price
-      // const totalPrice = individualPrice
-
-      // no need to filter, have cartQuanity multiply price. If 0, it wont matter
-      // plants.forEach(item =>{
-      //   console.log(item)
-      // })
-      // console.log(individualPrice)
-
+   
+     let totalResult = 0;
+     plants.forEach((item) => {
+      totalResult += item.cartQuantity * item.price
+     })
+     console.log(totalResult)
       // display totalPrice
+      const totalPrice = document.querySelector('.totalPrice');
+      totalPrice.innerHTML = '';
+      
+      const totalSection = document.createElement('p')
+      totalSection.innerHTML = `Total Cost: ${totalResult}`
+
+      totalPrice.append(totalSection)
+
+
     })
-  });
+});
+
+
+
 
 const modal = document.querySelector('.modal')
 const openModal = document.querySelector('.shopping-cart');
@@ -206,8 +215,6 @@ openModal.addEventListener('click', () => {
 closeModal.addEventListener('click', () => {
   modal.close()
 })
-
-
 
 
 /*
