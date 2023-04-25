@@ -188,7 +188,7 @@ onValue(dbRef, (data) => {
      plants.forEach((item) => {
       totalResult += item.cartQuantity * item.price
      })
-     console.log(totalResult)
+    //  console.log(totalResult)
       // display totalPrice
       const totalPrice = document.querySelector('.totalPrice');
       totalPrice.innerHTML = '';
@@ -197,8 +197,6 @@ onValue(dbRef, (data) => {
       totalSection.innerHTML = `Total Cost: ${totalResult}`
 
       totalPrice.append(totalSection)
-
-
     })
 });
 
