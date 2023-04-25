@@ -249,19 +249,30 @@ onValue(dbRef, (data) => {
         set(dbRef, storeData);
       });
 
-      let totalResult = 0;
-      plants.forEach((item) => {
-        totalResult += item.cartQuantity * item.price;
-      });
-      console.log(totalResult);
+     let totalResult = 0;
+     plants.forEach((item) => {
+      const productValue = item.cartQuantity * item.price
+
+      if (productValue === 0){
+        totalResult = 0;
+        return;
+      }
+     })
+
+     totalPrice += productValue
+
+    //  console.log(totalResult)
       // display totalPrice
       const totalPrice = document.querySelector('.totalPrice');
       totalPrice.innerHTML = '';
+      
+      const totalSection = document.createElement('p')
+      totalSection.innerHTML = `Total Cost: ${totalResult.toFixed(2)}`
 
-      const totalSection = document.createElement('p');
-      totalSection.innerHTML = `Total Cost: ${totalResult.toFixed(2)}`;
+      totalPrice.append(totalSection)
 
-      totalPrice.append(totalSection);
+
+    })
     });
 });
 
