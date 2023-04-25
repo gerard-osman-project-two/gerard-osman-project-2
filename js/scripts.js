@@ -215,10 +215,12 @@ onValue(dbRef, (data) => {
     .forEach((item) => {
       // render the cart items
       const newLI = document.createElement('li');
-      newLI.innerHTML = `<img src="${item.url}" alt="" style= "max-height:50px"/> ${item.name} + ${item.cartQuantity}
-      <button class="increase">🔼</button>
-      <button class="decrease">🔽</button>
-      <button class="remove">❌</button>
+      newLI.innerHTML = `
+      <img src="${item.url}" alt="${item.alt}"/>
+      <p>${item.name} x ${item.cartQuantity}</p>
+      <button class="increase"><i class="fa-solid fa-plus" style="color: #ffffff;"></i></button>
+      <button class="decrease"><i class="fa-solid fa-minus" style="color: #ffffff;"></i></button>
+      <button class="remove"><i class="fa-solid fa-trash" style="color: #ffffff;"></i></button>
       `;
       shoppingCart.appendChild(newLI);
 
@@ -250,10 +252,10 @@ onValue(dbRef, (data) => {
 
 const modal = document.querySelector('.modal');
 const openModal = document.querySelector('.shopping-cart');
-const closeModal = document.querySelector('.close-button');
+const closeModal = document.querySelector('#close-button');
 
 openModal.addEventListener('click', () => {
-  modal.showModal(); //Allows to escape via esc button
+  modal.showModal(); // Allows to escape via esc button
 });
 closeModal.addEventListener('click', () => {
   modal.close();

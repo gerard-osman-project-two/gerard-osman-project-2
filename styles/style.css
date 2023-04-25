@@ -302,12 +302,13 @@ header {
   text-transform: uppercase;
   padding: 1.25rem 2.25rem;
   border-radius: 2rem;
+  border: 2px solid hsl(85, 52%, 64%);
 }
 .btn-feature:hover, .btn-feature:focus {
-  background: hsl(0, 0%, 30%);
+  background: hsl(0, 0%, 100%);
   color: hsl(85, 52%, 64%);
   cursor: pointer;
-  border: 3px solid hsl(85, 52%, 64%);
+  border: 2px solid hsl(85, 52%, 64%);
 }
 
 @media (max-width: 940px) {
@@ -639,12 +640,13 @@ div.new-col {
   text-transform: uppercase;
   padding: 0.75rem 2.25rem;
   border-radius: 2rem;
+  border: 2px solid hsl(85, 52%, 64%);
 }
 .btn-col:hover, .btn-col:focus {
-  background: hsl(0, 0%, 30%);
+  background: hsl(0, 0%, 100%);
   color: hsl(85, 52%, 64%);
   cursor: pointer;
-  border: 3px solid hsl(85, 52%, 64%);
+  border: 2px solid hsl(85, 52%, 64%);
 }
 
 .col-of-cac-1 {
@@ -1004,4 +1006,75 @@ textarea {
         -ms-flex-direction: column;
             flex-direction: column;
   }
+}
+dialog {
+  font-family: "Rubik", sans-serif;
+  width: 400px;
+  max-height: 400px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  position: fixed;
+  border: 2px solid hsl(85, 52%, 64%);
+}
+dialog ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 1rem;
+}
+dialog ul li {
+  margin-top: 0.25rem;
+}
+dialog ul img {
+  max-height: 100px;
+}
+
+.cart-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.cart-container button {
+  font-size: 1rem;
+  color: hsl(0, 0%, 100%);
+  background: hsl(85, 52%, 64%);
+  text-transform: uppercase;
+  padding: 0.25rem 0.5rem;
+  border: 2px solid hsl(85, 52%, 64%);
+}
+.cart-container button:hover, .cart-container button:focus {
+  color: hsl(85, 52%, 64%);
+  cursor: pointer;
+  outline: 1px solid hsl(0, 0%, 30%);
+}
+
+#close-button {
+  font-size: 1rem;
+  color: hsl(0, 0%, 100%);
+  background: hsl(85, 52%, 64%);
+  text-transform: uppercase;
+  padding: 0.25rem 0.5rem;
+  border-radius: 2rem;
+  border: 2px solid hsl(85, 52%, 64%);
+}
+#close-button:hover, #close-button:focus {
+  background: hsl(0, 0%, 100%);
+  color: hsl(85, 52%, 64%);
+  cursor: pointer;
+  border: 2px solid hsl(85, 52%, 64%);
+  outline: none;
 }
