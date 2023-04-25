@@ -14,6 +14,7 @@ const cartRef = ref(database, '/cart');
 
 // global elements
 const plantsUL = document.querySelector('.plants-list');
+const cartIconNum = document.querySelector('.cart-num');
 
 // Step 2:  Declare a function that will add our data both the inventory and the currencies, to our database.
 const addToDatabase = (key, value) => {
@@ -22,114 +23,107 @@ const addToDatabase = (key, value) => {
 };
 
 // Array of plant and currency objects
-// const plants = [
-//   {
-//     name: 'American marigold',
-//     price: 23.45,
-//     inCart: false,
-//     cartQuantity: 0,
-//     storeQuantity: 10,
-//     url: './assets/p1.jpeg',
-//     alt: 'an american marigold plant',
-//   },
-//   {
-//     name: 'Black eyed susan',
-//     price: 25.45,
-//     inCart: false,
-//     cartQuantity: 0,
-//     storeQuantity: 10,
-//     url: './assets/p2.jpeg',
-//     alt: 'a black eyed susan plant',
-//   },
-//   {
-//     name: 'Bleeding heart',
-//     price: 30.45,
-//     inCart: false,
-//     cartQuantity: 0,
-//     storeQuantity: 10,
-//     url: './assets/p3.jpeg',
-//     alt: 'a bleeding heart plant',
-//   },
-//   {
-//     name: 'Bloody cranesbill',
-//     price: 45,
-//     inCart: false,
-//     cartQuantity: 0,
-//     storeQuantity: 10,
-//     url: './assets/p4.jpeg',
-//     alt: 'a bloody cranesbill plant',
-//   },
-//   {
-//     name: 'Butterfly weed',
-//     price: 50.45,
-//     inCart: false,
-//     cartQuantity: 0,
-//     storeQuantity: 10,
-//     url: './assets/p5.jpeg',
-//     alt: 'a butterfly weed plant',
-//   },
-//   {
-//     name: 'Common yarrow',
-//     price: 65,
-//     inCart: false,
-//     cartQuantity: 0,
-//     storeQuantity: 10,
-//     url: './assets/p6.jpeg',
-//     alt: 'a common yarrow plant',
-//   },
-//   {
-//     name: 'Double viburnum',
-//     price: 67.45,
-//     inCart: false,
-//     cartQuantity: 0,
-//     storeQuantity: 10,
-//     url: './assets/p7.jpeg',
-//     alt: 'a double viburnum plant',
-//   },
-//   {
-//     name: 'Feather reed grass',
-//     price: 20,
-//     inCart: false,
-//     cartQuantity: 0,
-//     storeQuantity: 10,
-//     url: './assets/p8.jpeg',
-//     alt: 'a feather reed grass plant',
-//   },
-// ];
-// const currencies = {
-//   usd: {
-//     exchange: 1,
-//     symbol: `$`,
-//     displayName: `USD`,
-//     altText: `the US flag`,
-//     flag: `images/USD-flag.png`,
-//   },
-//   cad: {
-//     exchange: 1.28,
-//     symbol: `$`,
-//     displayName: `CAD`,
-//     altText: `the Canadian flag`,
-//     flag: `images/CAD-flag.png`,
-//   },
-//   gbp: {
-//     exchange: 0.76,
-//     symbol: `£`,
-//     displayName: `GBP`,
-//     altText: `the UK flag`,
-//     flag: `images/GBP-flag.png`,
-//   },
-// };
-// const selected = {
-//   test: {
-//     testing1: 0,
-//     testing2: 2,
-//   }
-// }
+const plants = [
+  {
+    name: 'American marigold',
+    price: 23.45,
+    inCart: false,
+    cartQuantity: 0,
+    storeQuantity: 10,
+    url: './assets/p1.jpeg',
+    alt: 'an american marigold plant',
+  },
+  {
+    name: 'Black eyed susan',
+    price: 25.45,
+    inCart: false,
+    cartQuantity: 0,
+    storeQuantity: 10,
+    url: './assets/p2.jpeg',
+    alt: 'a black eyed susan plant',
+  },
+  {
+    name: 'Bleeding heart',
+    price: 30.45,
+    inCart: false,
+    cartQuantity: 0,
+    storeQuantity: 10,
+    url: './assets/p3.jpeg',
+    alt: 'a bleeding heart plant',
+  },
+  {
+    name: 'Bloody cranesbill',
+    price: 45,
+    inCart: false,
+    cartQuantity: 0,
+    storeQuantity: 10,
+    url: './assets/p4.jpeg',
+    alt: 'a bloody cranesbill plant',
+  },
+  {
+    name: 'Butterfly weed',
+    price: 50.45,
+    inCart: false,
+    cartQuantity: 0,
+    storeQuantity: 10,
+    url: './assets/p5.jpeg',
+    alt: 'a butterfly weed plant',
+  },
+  {
+    name: 'Common yarrow',
+    price: 65,
+    inCart: false,
+    cartQuantity: 0,
+    storeQuantity: 10,
+    url: './assets/p6.jpeg',
+    alt: 'a common yarrow plant',
+  },
+  {
+    name: 'Double viburnum',
+    price: 67.45,
+    inCart: false,
+    cartQuantity: 0,
+    storeQuantity: 10,
+    url: './assets/p7.jpeg',
+    alt: 'a double viburnum plant',
+  },
+  {
+    name: 'Feather reed grass',
+    price: 20,
+    inCart: false,
+    cartQuantity: 0,
+    storeQuantity: 10,
+    url: './assets/p8.jpeg',
+    alt: 'a feather reed grass plant',
+  },
+];
+const currencies = {
+  usd: {
+    exchange: 1,
+    symbol: `$`,
+    displayName: `USD`,
+    altText: `the US flag`,
+    flag: `images/USD-flag.png`,
+  },
+  cad: {
+    exchange: 1.28,
+    symbol: `$`,
+    displayName: `CAD`,
+    altText: `the Canadian flag`,
+    flag: `images/CAD-flag.png`,
+  },
+  gbp: {
+    exchange: 0.76,
+    symbol: `£`,
+    displayName: `GBP`,
+    altText: `the UK flag`,
+    flag: `images/GBP-flag.png`,
+  },
+};
 
 // adding to the database
-// addToDatabase('plants', plants);
-// addToDatabase('currencies', currencies);
-// addToDatabase('selected', selected);
+addToDatabase('plants', plants);
+addToDatabase('currencies', currencies);
 
 // const buttonsCart = () => {
 //   const removeCartItemButtons = document.getElementById("remove")
@@ -157,7 +151,6 @@ onValue(dbRef, (data) => {
   // window.storeData =storeData //global variable that I can access in the browser inspect and console.log whenever I need
   const plants = storeData.plants;
   const currencies = storeData.currencies;
-  const cartIconNum = document.querySelector('.cart-num');
 
   const displayItems = (chosenCurrency) => {
     // const plantsUL = document.querySelector('.plants-list');
@@ -176,52 +169,30 @@ onValue(dbRef, (data) => {
       `;
       plantsUL.appendChild(newLI);
 
-      newLI.querySelector('button').addEventListener('click', (event) => {
-        event.preventDefault();
-        const id = event.target.parentNode.id.slice(5);
+      // plantsUL.addEventListener('click', (event) => {
+      //   event.preventDefault();
+      //   const id = event.target.parentNode.id.slice(5);
 
-        if (event.target.tagName === 'IMG') {
-          const selectedSrc = event.target.parentElement.previousElementSibling.attributes.src.nodeValue;
-          console.log(selectedSrc);
+      //   if (event.target.tagName === 'IMG') {
+      //     const selectedSrc = event.target.parentElement.previousElementSibling.attributes.src.nodeValue;
+      //     console.log(selectedSrc);
 
-          get(shopRef).then((snapshot) => {
-            const plantData = snapshot.val();
-            const index = plantData.findIndex((plant) => plant.url === selectedSrc);
+      //     get(shopRef).then((snapshot) => {
+      //       const plantData = snapshot.val();
+      //       const index = plantData.findIndex((plant) => plant.url === selectedSrc);
 
-            if (plantData[index].cartQuantity === 0) {
-              addToCart(index);
-            }
-          });
-        }
+      //       if (plantData[index].cartQuantity === 0) {
+      //         addToCart(index);
+      //       }
+      //     });
+      //   }
 
-        cartIconNum.innerText = parseInt(cartIconNum.innerText) + 1;
-        storeData.plants[id].cartQuantity += 1;
-        set(dbRef, storeData);
-      });
+      //   cartIconNum.innerText = parseInt(cartIconNum.innerText) + 1;
+      //   storeData.plants[id].cartQuantity += 1;
+      //   set(dbRef, storeData);
+      // });
     });
   };
-
-  // plantsUL.addEventListener('click', (event) => {
-  //   event.preventDefault();
-  //   const id = event.target.parentNode.id.slice(5);
-
-  //   if (event.target.tagName === 'IMG') {
-  //     const selectedSrc = event.target.parentElement.previousElementSibling.attributes.src.nodeValue;
-  //     console.log(selectedSrc);
-
-  //     get(shopRef).then((snapshot) => {
-  //       const plantData = snapshot.val();
-  //       const index = plantData.findIndex((plant) => plant.url === selectedSrc);
-
-  //       if (plantData[index].cartQuantity === 0) {
-  //         addToCart(index);
-  //       }
-  //     });
-  //   }
-
-  //   storeData.plants[id].cartQuantity += 1;
-  //   set(dbRef, storeData);
-  // });
 
   displayItems(currencies.cad);
 
@@ -233,8 +204,9 @@ onValue(dbRef, (data) => {
     .forEach((item) => {
       // render the cart items
       const newLI = document.createElement('li');
-      newLI.innerHTML = `<img src="${item.url}" alt="${item.alt}" style= "max-height:50px"/> ${item.name} + ${item.cartQuantity}
-      <p>${(item.price * item.cartQuantity).toFixed(2)}
+      newLI.innerHTML = `<img src="${item.url}" alt="${item.alt}">
+      <p>${item.name} x ${item.cartQuantity}</p>
+      <p>$${(item.price * item.cartQuantity).toFixed(2)}</p>
       <button class="increase">🔼</button>
       <button class="decrease">🔽</button>
       <button class="remove">❌</button>
@@ -278,6 +250,35 @@ onValue(dbRef, (data) => {
 
       totalPrice.append(totalSection);
     });
+});
+
+plantsUL.addEventListener('click', (event) => {
+  event.preventDefault();
+  const id = event.target.parentNode.id.slice(5);
+
+  if (event.target.tagName === 'IMG') {
+    const selectedSrc = event.target.parentElement.previousElementSibling.attributes.src.nodeValue;
+    console.log(selectedSrc);
+
+    get(shopRef).then((snapshot) => {
+      const plantData = snapshot.val();
+      const index = plantData.findIndex((plant) => plant.url === selectedSrc);
+      const chosenRef = ref(database, `/plants/${index}`);
+      console.log(chosenRef);
+
+      if (plantData[index].cartQuantity === 0) {
+        addToCart(index);
+      }
+
+      cartIconNum.innerText = parseInt(cartIconNum.innerText) + 1;
+
+      const quantity = {
+        cartQuantity: plantData[index].cartQuantity + 1,
+      };
+
+      update(chosenRef, quantity);
+    });
+  }
 });
 
 const addToCart = (selectedPlantIndex) => {

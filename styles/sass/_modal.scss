@@ -1,0 +1,38 @@
+@use 'variables' as v;
+dialog {
+  font-family: v.$ff-primary;
+  width: 400px;
+  height: 400px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  position: fixed;
+  border: 2px solid v.$green;
+  ul {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    img {
+      max-height: 100px;
+    }
+  }
+}
+
+.close-button {
+  font-size: v.$fs-400;
+  color: v.$white;
+  background: v.$green;
+  text-transform: uppercase;
+  padding: 0.25rem 0.5rem;
+  border-radius: 2rem;
+
+  &:hover,
+  &:focus {
+    background: v.$grey-dark;
+    color: v.$green;
+    cursor: pointer;
+    border: 3px solid v.$green;
+  }
+}

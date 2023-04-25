@@ -1005,3 +1005,43 @@ textarea {
             flex-direction: column;
   }
 }
+dialog {
+  font-family: "Rubik", sans-serif;
+  width: 400px;
+  height: 400px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  position: fixed;
+  border: 2px solid hsl(85, 52%, 64%);
+}
+dialog ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 1rem;
+}
+dialog ul img {
+  max-height: 100px;
+}
+
+.close-button {
+  font-size: 1rem;
+  color: hsl(0, 0%, 100%);
+  background: hsl(85, 52%, 64%);
+  text-transform: uppercase;
+  padding: 0.25rem 0.5rem;
+  border-radius: 2rem;
+}
+.close-button:hover, .close-button:focus {
+  background: hsl(0, 0%, 30%);
+  color: hsl(85, 52%, 64%);
+  cursor: pointer;
+  border: 3px solid hsl(85, 52%, 64%);
+}
