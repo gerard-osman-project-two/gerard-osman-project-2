@@ -488,13 +488,6 @@ header {
   position: relative;
 }
 
-.plants-list a:hover {
-  -webkit-transform: scale(1.05);
-  transform: scale(1.05);
-  -webkit-transition: 0.2s linear;
-  transition: 0.2s linear;
-}
-
 .plants-list img {
   width: 100%;
   -ms-flex-item-align: center;
